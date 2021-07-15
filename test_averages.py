@@ -4,20 +4,53 @@ C = [1, 2, 3, 4, 3, 4, 3, 2, 1]
 D = [1, 1, 1, 1, 2]
 
 def mean_f(x):
-    # need to write the code to calculate the mean
-    return 0.0
+    mean = sum(x)/len(x)
+    print(mean)
+    return mean
     
 def median_f(x):
-    # need to write the code to calculate the median
-    return 0.0
+    sorted_x = sorted(x)
+    leng_x = len(x)
+    if leng_x%2==0:
+        # even
+        a = int((leng_x / 2)- 1)
+        b = int(leng_x / 2)
+        median = (sorted_x[a] + sorted_x[b]) / 2
+        print(leng_x, a, b)
+    else:
+        # odd case
+        a =int((leng_x -1) / 2)
+        median = sorted_x[a] 
+    
+    
+    return median
     
 def mode_f(x):
-    # need to write the code to calculate the mode
-    return 0.0
+    d = {}
+    for i in x:
+        if i in d:
+            d[i] += 1
+        else:
+            d[i] = 1
+
+    mode = x[0]
+    max_count = 1
+    for k in d:
+        count = d[k]
+
+        if count > max_count:
+            mode = k
+            max_count = count
+
+
+    print(d)
+    return mode
     
-def range_f(x):
-    # need to write the code to calculate the range
-    return 0.0
+def range_f(x):#
+    sorted_x = sorted(x)
+    range1 = sorted_x[-1] - sorted_x[0]
+    print(range1)
+    return range1
 
 def test_mean():
     assert mean_f(A) == 2.6875
